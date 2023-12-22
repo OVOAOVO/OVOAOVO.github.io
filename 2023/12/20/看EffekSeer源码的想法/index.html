@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 
-<html theme="dark" showBanner="true" hasBanner="true" > 
+<html theme="dark" showBanner="true" hasBanner="desktop" > 
 <link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
 <link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
 <link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
@@ -14,19 +14,26 @@
   
 
   
-  <title>标签: 闲聊 | OVOAOVO</title>
+  <title>看EffekSeer源码的想法 | OVOAOVO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="OVOAOVO">
-<meta property="og:url" content="http://example.com/tags/%E9%97%B2%E8%81%8A/index.html">
+  <meta name="description" content="写写工作日志，感觉还挺不错hh~粒子系统到现在干了有3个月左右了吧，除去国庆放了7天假，也不知道啥水平了，对一个实习生来说3个月写个起码能正常维护的那种基础的粒子系统（主要从零开始），感觉进步是有的，从看源码这方面感觉出来点，大概能看懂了得样子，一开始对着EffekSeer那个库什么玩意都整不明白，好歹现在能看懂大概在做什么，特别详细的比如为什么这么写还是搞不清楚。   Render与Render">
+<meta property="og:type" content="article">
+<meta property="og:title" content="看EffekSeer源码的想法">
+<meta property="og:url" content="http://example.com/2023/12/20/%E7%9C%8BEffekSeer%E6%BA%90%E7%A0%81%E7%9A%84%E6%83%B3%E6%B3%95/index.html">
 <meta property="og:site_name" content="OVOAOVO">
+<meta property="og:description" content="写写工作日志，感觉还挺不错hh~粒子系统到现在干了有3个月左右了吧，除去国庆放了7天假，也不知道啥水平了，对一个实习生来说3个月写个起码能正常维护的那种基础的粒子系统（主要从零开始），感觉进步是有的，从看源码这方面感觉出来点，大概能看懂了得样子，一开始对着EffekSeer那个库什么玩意都整不明白，好歹现在能看懂大概在做什么，特别详细的比如为什么这么写还是搞不清楚。   Render与Render">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/12/20/%E7%9C%8BEffekSeer%E6%BA%90%E7%A0%81%E7%9A%84%E6%83%B3%E6%B3%95/images/EffekSeer.png">
+<meta property="article:published_time" content="2023-12-20T12:49:32.000Z">
+<meta property="article:modified_time" content="2023-12-22T14:27:28.577Z">
 <meta property="article:author" content="LHT">
+<meta property="article:tag" content="闲聊">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/12/20/%E7%9C%8BEffekSeer%E6%BA%90%E7%A0%81%E7%9A%84%E6%83%B3%E6%B3%95/images/EffekSeer.png">
   
     <link rel="alternate" href="/atom.xml" title="OVOAOVO" type="application/atom+xml">
   
@@ -215,63 +222,127 @@
     <div id="content-body">
        
 
-<div class="archive-main-card">
-    <div class="archive-top">
-      <div class="main-title-bar">
-        <div class="main-title-dot"></div>
-        <h1 class="article-title">归档</h1>
-      </div>    
-    </div>
+
+<article id="post-看EffekSeer源码的想法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
     
+<div class="article-gallery">
+  <div class="article-gallery-photos">
     
-      
-      
-        
-        <div class="year-line">
-            <div class="year-num">2023</div>
-            <div class="dot-wrapper">
-                <div class="dot"></div>
-            </div>
-            <div class="article-count">2 篇文章</div>
-        </div>
-      
-      <a class="archive-article-link" href="/2023/12/20/%E7%9C%8BEffekSeer%E6%BA%90%E7%A0%81%E7%9A%84%E6%83%B3%E6%B3%95/" title="看EffekSeer源码的想法">
-        <div class="date">12-20</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    看EffekSeer源码的想法
-                
-            </div>
-        </div>
-        <div class="tags">
-            #闲聊
-        </div>
-      </a>
-    
-      
-      
-      <a class="archive-article-link" href="/2023/12/20/0-%E4%B8%96%E7%95%8C%EF%BC%81/" title="\(@^0^@)/ 世界！">
-        <div class="date">12-20</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    \(@^0^@)/ 世界！
-                
-            </div>
-        </div>
-        <div class="tags">
-            #闲聊
-        </div>
+      <a class="article-gallery-img" rel="gallery_clqgq8gkv0002uwut9ptsd5bx">
+        <img src="/images/EffekSeer.png" itemprop="image">
       </a>
     
   </div>
+</div>
+
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        看EffekSeer源码的想法
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-12-20T12:49:32.000Z" itemprop="datePublished">2023-12-20</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            329 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%B2%E8%81%8A/" rel="tag">闲聊</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="写写工作日志，感觉还挺不错hh"><a href="#写写工作日志，感觉还挺不错hh" class="headerlink" title="写写工作日志，感觉还挺不错hh~"></a>写写工作日志，感觉还挺不错hh~</h2><p>粒子系统到现在干了有3个月左右了吧，除去国庆放了7天假，也不知道啥水平了，对一个实习生来说3个月写个起码能正常维护的那种基础的粒子系统（主要从零开始），感觉进步是有的，从看源码这方面感觉出来点，大概能看懂了得样子，一开始对着EffekSeer那个库什么玩意都整不明白，好歹现在能看懂大概在做什么，特别详细的比如为什么这么写还是搞不清楚。</p>
+<hr>
+<blockquote>
+<p>Render与Render_与Renderering与Renderering_的故事</p>
+</blockquote>
+<p><img src="/images/xqfz.jpg" alt="demo" title="唉。。。"></p>
+<hr>
+<p>就这表情，真事（当然举个例子，实际它还分Begin跟End。。。）</p>
+<p>主要没个人讲解，也没有详细的说明，只能看源码，之前听有人说看源码都是耍流氓，我还觉得仁者见仁智者见智，事实证明，北大的就是北大的，精辟哈🐂</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2023/12/22/%E8%8A%B1%E9%9B%A8%E6%97%8B%E5%BE%8B/"
+      title="从花雨旋律看TGA"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        从花雨旋律看TGA
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/12/20/0-%E4%B8%96%E7%95%8C%EF%BC%81/"
+      title="\(@^0^@)/ 世界！"
+     >
+
+    <p class="title-text">
+      
+        \(@^0^@)/ 世界！
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":"QQYdZ0vtjPeHG7pTR3Hj8sFD-gzGzoHsz","appKey":"DZP0H1NAncrwlUFAMPKlpuDY","placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+
+
+
+
     </div>
     <div id="footer-wrapper">
       <footer id="footer">
