@@ -151,7 +151,7 @@
         
             <a class="category-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">
                 游戏技术
-                <div class="category-count">8</div>
+                <div class="category-count">10</div>
             </a>
         </div>
     </div>
@@ -177,7 +177,7 @@
       
         <a class="archive-link" href="/archives/2024/03 ">
           三月 2024 
-          <div class="archive-count">4 </div>
+          <div class="archive-count">6 </div>
         </a>
       
         <a class="archive-link" href="/archives/2024/02 ">
@@ -206,6 +206,18 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/03/21/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-V/" title="最终幻想16 shadow part V" >
+            <div class="recent-link-text">
+              最终幻想16 shadow part V
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/03/21/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-IV/" title="最终幻想16 shadow part IV" >
+            <div class="recent-link-text">
+              最终幻想16 shadow part IV
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/03/19/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-III/" title="最终幻想16 shadow part III" >
             <div class="recent-link-text">
               最终幻想16 shadow part III
@@ -224,18 +236,6 @@
             </div>
           </a>
         
-          <a class="recent-link" href="/2024/03/13/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%83%A8%E5%88%86%E6%B8%B2%E6%9F%93%E6%9E%B6%E6%9E%84/" title="移动端部分渲染架构" >
-            <div class="recent-link-text">
-              移动端部分渲染架构
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2024/02/20/%E6%81%B6%E5%90%8D%E6%98%AD%E8%91%97-%E6%AC%A1%E5%AD%90-%E7%B2%92%E5%AD%90%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/" title="恶名昭著-次子-粒子系统架构" >
-            <div class="recent-link-text">
-              恶名昭著-次子-粒子系统架构
-            </div>
-          </a>
-        
       </ul>
     </div>
   </div>
@@ -246,6 +246,161 @@
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-最终幻想16-shadow-part-V" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/03/21/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-V/">最终幻想16 shadow part V</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-03-21T12:20:57.000Z" itemprop="datePublished">2024-03-21</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">游戏技术</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.9k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AAA/" rel="tag">AAA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              FFXVI Shadow Part V正文Part V ：HiQuality最后的第 5 阶段处理重要角色的更高质量的阴影,绘制在专用的Closeup Shadowmap中,在现有的 VisibilityBuffer 上合成角色阴影
+Closeup Shadowmap:与我们的高质量阴影技术一起使用。与普通阴影贴图一样运行，但视图仅限于一个感兴趣的对象，而不是整个光源的视野，以获得更好的分辨率精度。
+Output: Updated Final Light List Buffer当阴影图块从完全亮起变为部分亮起时，需要分配一个Visibility Slot并保存Visibility SlotID。相反，需要通过将 Visibility SlotID 替换为完全点亮的标志。这两种情况都通过更新最终光源列表缓冲区中的阴影图块条目来处理。
+Output: Updated VisibilityBuffer使用特写阴影贴图生成阴影。当灯光&#x2F;像素可见性降低时，其在 VisibilityBuffer 中的值将更新。
+ Output: Updated Standard Shadowmap...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  with-pic  "
+       style="background-image: url(/images/FFXVI.png)" 
+      href="/2024/03/21/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-V/" 
+    >
+       
+      <div class="overlay">
+        <i class="fa-solid fa-angle-right with-pic"></i>
+      </div>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-最终幻想16-shadow-part-IV" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/03/21/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-IV/">最终幻想16 shadow part IV</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-03-21T12:20:39.000Z" itemprop="datePublished">2024-03-21</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">游戏技术</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.7k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AAA/" rel="tag">AAA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              FFXVI Shadow Part IV正文Part IV ：Generate第 4 阶段使用从原始延迟照明着色器导入的代码计算每个光源的每像素可见性。使用Early Light List buffer中 Shadow Tile 条目中的光源列表，我们迭代它们以使用 Percentage Closer Soft Shadows 生成阴影，但可以用任何其他技术替换它。
+ Output: VisibilityBuffer
+ 此缓冲区包含 8x8 内存块，用于存储shadow tile的每像素光可见性。这是延迟阴影系统所需的最大中间缓冲区，一旦照明阶段完成，就可以在帧的其余部分丢弃（其他缓冲区也是如此）。每个像素使用 8 位来表示光可见度的百分比，但 4 位可能就足够了，具体取决于项目的需要。
+’Generate Deferred Shadows’ compute shader pseudo code 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  with-pic  "
+       style="background-image: url(/images/FFXVI.png)" 
+      href="/2024/03/21/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-IV/" 
+    >
+       
+      <div class="overlay">
+        <i class="fa-solid fa-angle-right with-pic"></i>
+      </div>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -857,165 +1012,6 @@ Particle最明显被风扰动的东西（树叶，灰尘，烟雾等）
     <a class="right-panel  with-pic  "
        style="background-image: url(/images/bandi.jpg)" 
       href="/2024/01/04/%E7%8F%AD%E8%BF%AA%E4%B8%8E%E9%BB%91%E6%9A%97%E5%A4%8D%E5%85%B4/" 
-    >
-       
-      <div class="overlay">
-        <i class="fa-solid fa-angle-right with-pic"></i>
-      </div>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-次序无关的半透明渲染与Unity渲染管线" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/12/27/%E6%AC%A1%E5%BA%8F%E6%97%A0%E5%85%B3%E7%9A%84%E5%8D%8A%E9%80%8F%E6%98%8E%E6%B8%B2%E6%9F%93%E4%B8%8EUnity%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/">次序无关的半透明渲染与Unity渲染管线</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-12-27T14:59:45.000Z" itemprop="datePublished">2023-12-27</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">游戏技术</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.3k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Unity中部分渲染管线概念Unity自定义管线
-SRP: 全称为Scriptable Render Pipeline（可编程渲染管线&#x2F;脚本化渲染管线）它主要把渲染管线拆分成二层:一层是比较底层的渲染API层，像OpenGL，D3D等相关的都封装起来。另一层是渲染管线上层，上层代码使用C#来编写。在C#这层不需要关注底层在不同平台上渲染API的差别，也不需要关注具体如何做一个Draw Call
-URP: 全称为Universal Render Pipeline(通用渲染管线), 它是Unity官方基于SRP提供的模板，它的前身是LWRP(Lightweight RP即轻量级渲染管线), 在2019.3开始改名为URP
-HDRP: 全称为High Definition Render Pipeline（高清晰度渲染管线），它也是Unity官方基于SRP提供的模板，它更多是针对高端设备，如游戏主机和高端台式机，它更关注于真实感图形和渲染
-
-Baches（批处理）其实就理解成DrawCall值就可以个Batch至少包含一个DrawCall原因 1：Unity引擎开启批处理情况下...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  with-pic  "
-       style="background-image: url(/images/chess.png)" 
-      href="/2023/12/27/%E6%AC%A1%E5%BA%8F%E6%97%A0%E5%85%B3%E7%9A%84%E5%8D%8A%E9%80%8F%E6%98%8E%E6%B8%B2%E6%9F%93%E4%B8%8EUnity%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/" 
-    >
-       
-      <div class="overlay">
-        <i class="fa-solid fa-angle-right with-pic"></i>
-      </div>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-对马岛之魂草地生成" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/12/25/%E5%AF%B9%E9%A9%AC%E5%B2%9B%E4%B9%8B%E9%AD%82%E8%8D%89%E5%9C%B0%E7%94%9F%E6%88%90/">对马岛之魂草地生成</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-12-25T13:44:42.000Z" itemprop="datePublished">2023-12-25</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">游戏技术</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.7k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AAA/" rel="tag">AAA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GDC/" rel="tag">GDC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              分割地形将地形划分为不同的块(tile) 每个tile有一套纹理 包含地形的高度 地形的材质 目的是能够区分哪些位置应该放哪些草 子部分的纹理由父图块采样得来，每一个tile有一个shader ，在tile的网格上获取一个位置添加一个偏移量来选择草面片的位置，然后Distance culling和frustum culling 然后在当前位置从贴图选择草的种类和高度，丢掉空草以及高度为0的草的地形最后Occlusion culling
-
-不同草之间边缘部分链接每个tile有一张512*512的纹理来映射草的类型（使用的艺术家创造的参数）作为8bit-index存入草的数组中 进行双线性插值是没有意义的（依然可以清楚的看到不同草的边界） 所以随机选择一种草的簇（clump）然后跟据四个簇的类型在中间位置进行加权
-草片数据结构
-Position 位置Facing  叶面指向（2d向量）  
-Wind Strength at position 风强Per-blade Hash 基于每个面片位置的哈希（驱动面片上所有参数包括动画）GrassType   草的类型  
-Clump faci...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  with-pic  "
-       style="background-image: url(/images/grass.jpg)" 
-      href="/2023/12/25/%E5%AF%B9%E9%A9%AC%E5%B2%9B%E4%B9%8B%E9%AD%82%E8%8D%89%E5%9C%B0%E7%94%9F%E6%88%90/" 
     >
        
       <div class="overlay">
