@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/06/11/Wwise-101/images/Wwise101.png">
 <meta property="article:published_time" content="2024-06-11T15:32:27.000Z">
-<meta property="article:modified_time" content="2024-06-11T15:43:36.317Z">
+<meta property="article:modified_time" content="2024-06-11T17:13:32.468Z">
 <meta property="article:author" content="OVOAOVO">
 <meta property="article:tag" content="学习，音乐">
 <meta name="twitter:card" content="summary">
@@ -302,7 +302,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            229 词 
+            531 词 
           </div>
         </div>
         
@@ -321,9 +321,13 @@
 <li>Events事件管理音乐内部的逻辑（播放循环等，且事件底下统一按小写处理，不区分大小写）</li>
 <li>SoundBank主要是用来与代码交互，代码要找到相应的SoundBank 才可以调用下面的事件</li>
 </ol>
-<p>soundbank生成目录就是游戏需要调用的目录</p>
+<p>soundbank生成目录就是游戏需要调用的目录，event要扔在SoundBank里，Audio通过Event管理</p>
 <p><img src="/images/audio_event_sound.png" alt="system" title="结构">  </p>
-
+<h1 id="Part-II"><a href="#Part-II" class="headerlink" title="Part II"></a>Part II</h1><p>重点在于编辑器的使用 音高，音频编辑（裁剪，淡入淡出），随机类型的音乐（虚文件夹），序列类型的音乐（虚文件夹）等</p>
+<blockquote>
+<p>感觉用起来很舒服，起码比FLstudio要舒服的多，左下角有所有的功能提示，FLstudio只有简介，Wwise甚至有说明，各种编辑起来也很方便，不知道是不是因为本身属于一种编程思想的音频引擎？</p>
+</blockquote>
+<h3 id="有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多"><a href="#有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多" class="headerlink" title="有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多"></a>有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多</h3>
         
       </div>
 

@@ -284,7 +284,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            229 词 
+            531 词 
           </div>
         </div>
         
@@ -305,9 +305,13 @@ Audio目录存储所有音乐资源
 Events事件管理音乐内部的逻辑（播放循环等，且事件底下统一按小写处理，不区分大小写）
 SoundBank主要是用来与代码交互，代码要找到相应的SoundBank 才可以调用下面的事件
 
-soundbank生成目录就是游戏需要调用的目录
+soundbank生成目录就是游戏需要调用的目录，event要扔在SoundBank里，Audio通过Event管理
   
+Part II重点在于编辑器的使用 音高，音频编辑（裁剪，淡入淡出），随机类型的音乐（虚文件夹），序列类型的音乐（虚文件夹）等
 
+感觉用起来很舒服，起码比FLstudio要舒服的多，左下角有所有的功能提示，FLstudio只有简介，Wwise甚至有说明，各种编辑起来也很方便，不知道是不是因为本身属于一种编程思想的音频引擎？
+
+有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是...
             
           </div>
         
