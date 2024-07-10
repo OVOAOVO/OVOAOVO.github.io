@@ -28,7 +28,7 @@
     "hexo-symbols-count-time": "^0.6.3",
     "hexo-theme-butterfly": "^4.13.0",
     "hexo-theme-landscape": "^1.0.0",
-    "hexo-theme-vivia": "^0.4.2",
+    "hexo-theme-vivia": "^0.5.0",
     "stylus": "^0.62.0"
   }
 }
