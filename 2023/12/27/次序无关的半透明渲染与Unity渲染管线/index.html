@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="desktop" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>次序无关的半透明渲染与Unity渲染管线 | OVOAOVO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="Unity中部分渲染管线概念Unity自定义管线 SRP: 全称为Scriptable Render Pipeline（可编程渲染管线&#x2F;脚本化渲染管线）它主要把渲染管线拆分成二层:一层是比较底层的渲染API层，像OpenGL，D3D等相关的都封装起来。另一层是渲染管线上层，上层代码使用C#来编写。在C#这层不需要关注底层在不同平台上渲染API的差别，也不需要关注具体如何做一个Draw C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="次序无关的半透明渲染与Unity渲染管线">
+<meta property="og:url" content="http://example.com/2023/12/27/%E6%AC%A1%E5%BA%8F%E6%97%A0%E5%85%B3%E7%9A%84%E5%8D%8A%E9%80%8F%E6%98%8E%E6%B8%B2%E6%9F%93%E4%B8%8EUnity%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/index.html">
+<meta property="og:site_name" content="OVOAOVO">
+<meta property="og:description" content="Unity中部分渲染管线概念Unity自定义管线 SRP: 全称为Scriptable Render Pipeline（可编程渲染管线&#x2F;脚本化渲染管线）它主要把渲染管线拆分成二层:一层是比较底层的渲染API层，像OpenGL，D3D等相关的都封装起来。另一层是渲染管线上层，上层代码使用C#来编写。在C#这层不需要关注底层在不同平台上渲染API的差别，也不需要关注具体如何做一个Draw C">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/12/27/%E6%AC%A1%E5%BA%8F%E6%97%A0%E5%85%B3%E7%9A%84%E5%8D%8A%E9%80%8F%E6%98%8E%E6%B8%B2%E6%9F%93%E4%B8%8EUnity%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/images/chess.png">
+<meta property="article:published_time" content="2023-12-27T14:59:45.000Z">
+<meta property="article:modified_time" content="2024-03-13T15:16:08.127Z">
+<meta property="article:author" content="OVOAOVO">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="Unity">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/12/27/%E6%AC%A1%E5%BA%8F%E6%97%A0%E5%85%B3%E7%9A%84%E5%8D%8A%E9%80%8F%E6%98%8E%E6%B8%B2%E6%9F%93%E4%B8%8EUnity%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/images/chess.png">
+  
+    <link rel="alternate" href="/atom.xml" title="OVOAOVO" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.jpg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/images/banner.jpg" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>OVOAOVO </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">主页</a>
+    
+      <a class="main-nav-link" href="/archives">所有内容</a>
+    
+      <a class="main-nav-link" href="/about">关于我</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">主页</a>
+    
+      <a class="nav-dropdown-link" href="/archives">所有内容</a>
+    
+      <a class="nav-dropdown-link" href="/about">关于我</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/images/persion.jpg></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">OVOAOVO </div>
+      <div class="dot"></div>
+      <div class="subtitle">游戏引擎工程师，音乐家，艺术家，游戏制作人（当然都是我吹的） </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/OVOAOVO" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://steamcommunity.com/profiles/76561199024316101/" title="Steam"><i class="fa-brands fa-steam"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB/">
+                生活
+                <div class="category-count">4</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">
+                游戏技术
+                <div class="category-count">12</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/AAA/" rel="tag">AAA</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/GDC/" rel="tag">GDC</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%80%9D%E7%BB%AA-%E6%83%B3%E6%B3%95/" rel="tag">思绪&#x2F;想法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%97%B2%E8%81%8A/" rel="tag">闲聊</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2024/06 ">
+          六月 2024 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/03 ">
+          三月 2024 
+          <div class="archive-count">6 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/02 ">
+          二月 2024 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/01 ">
+          一月 2024 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/12 ">
+          十二月 2023 
+          <div class="archive-count">5 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2024/06/11/Wwise-101/" title="Wwise-101" >
+            <div class="recent-link-text">
+              Wwise-101
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/06/03/SIMD%E4%BC%98%E5%8C%96%E4%B8%8ESSE/" title="SIMD优化与SSE" >
+            <div class="recent-link-text">
+              SIMD优化与SSE
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/03/21/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-V/" title="最终幻想16 shadow part V" >
+            <div class="recent-link-text">
+              最终幻想16 shadow part V
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/03/21/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-IV/" title="最终幻想16 shadow part IV" >
+            <div class="recent-link-text">
+              最终幻想16 shadow part IV
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/03/19/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-III/" title="最终幻想16 shadow part III" >
+            <div class="recent-link-text">
+              最终幻想16 shadow part III
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-次序无关的半透明渲染与Unity渲染管线" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img" rel="gallery_cly3337tf001rrsut004wfino">
+        <img src="/images/chess.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        次序无关的半透明渲染与Unity渲染管线
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-12-27T14:59:45.000Z" itemprop="datePublished">2023-12-27</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">游戏技术</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.3k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="Unity中部分渲染管线概念"><a href="#Unity中部分渲染管线概念" class="headerlink" title="Unity中部分渲染管线概念"></a>Unity中部分渲染管线概念</h1><h2 id="Unity自定义管线"><a href="#Unity自定义管线" class="headerlink" title="Unity自定义管线"></a>Unity自定义管线</h2><ul>
+<li>SRP: 全称为Scriptable Render Pipeline（可编程渲染管线&#x2F;脚本化渲染管线）它主要把渲染管线拆分成二层:一层是比较底层的渲染API层，像OpenGL，D3D等相关的都封装起来。另一层是渲染管线上层，上层代码使用C#来编写。在C#这层不需要关注底层在不同平台上渲染API的差别，也不需要关注具体如何做一个Draw Call</li>
+<li>URP: 全称为Universal Render Pipeline(通用渲染管线), 它是Unity官方基于SRP提供的模板，它的前身是LWRP(Lightweight RP即轻量级渲染管线), 在2019.3开始改名为URP</li>
+<li>HDRP: 全称为High Definition Render Pipeline（高清晰度渲染管线），它也是Unity官方基于SRP提供的模板，它更多是针对高端设备，如游戏主机和高端台式机，它更关注于真实感图形和渲染</li>
+</ul>
+<p>Baches（批处理）其实就理解成DrawCall值就可以个Batch至少包含一个DrawCall<br>原因 1：Unity引擎开启批处理情况下将把满足条件的多个对象的渲染组合到一个内存块中以便减少由于资源切换而导致的 CPU 开销，也就是把多个DrawCall合并成一个DrawCall，来减少调用DrawCall的开销（主要是调用DrawCall之前的一系列设置），这个操作就是批处理。<br>原因 2：把数据加载到显存，设置渲染状态及数据，CPU调用DrawCall的这一整个过程就是一个Batch。这个过程当中主要性能消耗点在于上传物体数据（加载到显存）和设置渲染状态及数据这一块，而不是DrawCall命令本身。<br>SetPass calls 官网解释：渲染 pass 的数量。每个 pass 都需要 Unity 运行时绑定一个新的着色器。</p>
+<blockquote>
+<p>内置渲染管线：是所有材质球的渲染pass的数量。这里可能会有疑惑，拿Unity内置的 Lit Shader来举例，这Shader里有好多个Pass通道，SetPass calls值却跟Pass通道数量始终对不上，个人猜测这是因为Unity渲染时会选择Pass通道渲染，比如关闭阴影，那么Unity就不会选择阴影渲染通道也就是 ShadowCaster通道。<br>URP：渲染不同pass的数量，跟内置渲染管线不一样的是在URP不局限于材质球，也就是假如有五个材质球，但Shader和关键字都一样，这个Shader有两个Pass通道，那么这些物体的SetPass Calls值就是2。<br>其实想想也是合理的，SetPass calls值个人猜测官网主要是想呈现跟批处理相关的值，在内置渲染管线只能批处理使用同样材质球的物体，所以这个值为所有材质球的渲染Pass通道数量，在URP开启SRP Batcher情况下呢，是根据相同Shader变体的pass进行合批。 –知乎龙笑</p>
+</blockquote>
+<p>ShaderVariant（shader变体）<br>在写shader时，往往会在shader中定义多个宏，并在shader代码中控制开启宏或关闭宏时物体的渲染过程。最终编译的时候也是根据这些不同的宏来编译生成多种组合形式的shader源码。其中每一种组合就是这个shader的一个变体(Variant)。</p>
+<h1 id="顺序无关的半透明混合（OIT问题）"><a href="#顺序无关的半透明混合（OIT问题）" class="headerlink" title="顺序无关的半透明混合（OIT问题）"></a>顺序无关的半透明混合（OIT问题）</h1><h2 id="深度剥离-Depth-Peeling"><a href="#深度剥离-Depth-Peeling" class="headerlink" title="深度剥离 Depth Peeling"></a>深度剥离 Depth Peeling</h2><p>基本思想是利用 N 个 Pass 分别渲染出距离摄像机第 N 近的片元，这即是深度剥离的过程，最后再从远到近依次将剥离出的 N 个图层根据透明度混合叠加到屏幕缓冲中。</p>
+<p>实现深度剥离中的一个 Pass 需要2个深度缓冲和1个颜色缓冲，其中一个深度缓冲储存上一层剥离的深度值，另一个储存当前剥离层的深度值，颜色缓冲储存当前剥离层的片元色彩。</p>
+<h2 id="双深度剥离"><a href="#双深度剥离" class="headerlink" title="双深度剥离"></a>双深度剥离</h2><p>Nvidia 提出了一个可以在一次 Pass 中剥离两层的算法，即每一次剥离出距离摄像机第 i 近和 第 i 远的两层，这样可以用 (N&#x2F;2+1) 个 Pass 实现 N 层深度剥离的效果</p>
+<h2 id="延迟表面渲染"><a href="#延迟表面渲染" class="headerlink" title="延迟表面渲染"></a>延迟表面渲染</h2><p>可以使用类似 Deferred 的方式对半透明表面进行复杂着色， 即在每次剥离时除了深度值以外，还需要储存当前层的法线、颜色等数据，在最终的混合 Pass 中再进行半透明表面的复杂着色渲染。而这样我们需要类似 N 个 GBuffer 的空间，以空间换时间的目的。</p>
+<h2 id="逐像素的链表（Per-Pixel-Linked-Lists）"><a href="#逐像素的链表（Per-Pixel-Linked-Lists）" class="headerlink" title="逐像素的链表（Per-Pixel Linked Lists）"></a>逐像素的链表（Per-Pixel Linked Lists）</h2><p>逐像素的链表，是运用用到一个被成为“GPU 并行链表“的技术，在 Pixel Shader 中使用两个可写的纹理（DX11，SM 5.0，UAV），一个屏幕大小的链表头纹理，一个屏幕大小 N 倍的链表节点纹理。链表头纹理的每个像素存储每个像素链表在节点纹理中的偏移量。</p>
+<p>这项技术可以用来解决图形渲染中的很多问题，用来解决 OIT 问题只是其诸多应用之一。核心做法是遇到半透明片元就将深度、颜色等写入对应像素的链表。最后再用一个 PASS 对每个像素的链表进行深度排序和颜色混合。</p>
+<h2 id="Adaptive-Transparency"><a href="#Adaptive-Transparency" class="headerlink" title="Adaptive Transparency"></a>Adaptive Transparency</h2><p>Adaptive Transparency，简称 AT，是 Intel 提出的一种 OIT 技术。其核心思想是通过修改经典混合公式本身来改进 Per-Pixel Linked Lists 方法的内存和性能问题。<br><img src="/images/blendfor.png" alt="images1" title="公式"><br>在经典的混合公式中，颜色一次一次有序的迭代混合到目标色上的。如果我们使用某种方法，打破这种有序迭代，我们就可以不用再对片段排序了，即做到了真正的顺序无关。在这个方法中引入了一个能见度函数来简化这个顺序无关的混合公式：<br><img src="/images/blendfor2.png" alt="images2" title="公式">  </p>
+<blockquote>
+<p>参考引用：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/353687806">https://zhuanlan.zhihu.com/p/353687806</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/92337395">https://zhuanlan.zhihu.com/p/92337395</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/353940259">https://zhuanlan.zhihu.com/p/353940259</a></p>
+</blockquote>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2024/01/04/%E7%8F%AD%E8%BF%AA%E4%B8%8E%E9%BB%91%E6%9A%97%E5%A4%8D%E5%85%B4/"
+      title="班迪与黑暗复兴"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        班迪与黑暗复兴
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/12/25/%E5%AF%B9%E9%A9%AC%E5%B2%9B%E4%B9%8B%E9%AD%82%E8%8D%89%E5%9C%B0%E7%94%9F%E6%88%90/"
+      title="对马岛之魂草地生成"
+     >
+
+    <p class="title-text">
+      
+        对马岛之魂草地生成
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":"QQYdZ0vtjPeHG7pTR3Hj8sFD-gzGzoHsz","appKey":"DZP0H1NAncrwlUFAMPKlpuDY","placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2024 OVOAOVO<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
