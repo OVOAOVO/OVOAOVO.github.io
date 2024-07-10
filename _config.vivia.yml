@@ -1,0 +1,76 @@
+# Header
+menu:                      # Links in the navigation bar
+  主页: /
+  所有内容: /archives
+  关于我: /about
+rss: /atom.xml
+
+home:
+  style: default  # default, detail
+
+favicon:  /images/favicon.jpg       # Path to the custom favicon relative to /source (e.g. "/favicon.png" if your favicon file is located at /source/favicon.png)
+
+# Banner
+banner:
+  enable: true                  # Display banner
+  url: /images/banner.jpg    # Path to the banner image relative to /source. Web url is also supported
+  position: center               # Specifies the alignment of the image, see the "object-position" property in CSS
+  onAllPages: true               # Display banner on all pages instead of only the home page
+
+# Appearance
+hue: 250                        # The hue of the theme color (e.g. red: 0, orange: 60, blue: 260, purple: 300, pink: 345)
+                                 # Visit `saicaca.github.io/vivia-preview` to preview the theme color
+
+# Personal info
+avatar: /images/persion.jpg                             # Path to the avatar image relative to /source
+author: OVOAOVO
+subtitle: 游戏引擎工程师，音乐家，艺术家，游戏制作人（当然都是我吹的）
+links:
+  - name: GitHub			# Find icon codes at https://fontawesome.com/search
+    icon: fa-brands fa-github
+    url: https://github.com/OVOAOVO
+  - name: Steam
+    icon: fa-brands fa-steam 
+    url: https://steamcommunity.com/profiles/76561199024316101/
+
+# Sidebar
+sidebar:
+  widgets:                 # Plugins to be enabled (profile, category, tag, archive, recent_posts)
+    normal:                # Scroll along with the page
+      - profile
+    sticky:                # Stick to the top of the page
+      - category
+      - tag
+      - archive
+      - recent_posts
+
+# Sidebar Widget behavior
+archive_type: 'monthly'
+recent_posts_limits: 5
+categories:
+  max_depth: 2             # Maximum depth of categories displayed in the widget (null for unlimited)
+
+# Third-party comment system
+comment:
+  valine:
+    enable: true            # Enable Valine comment system
+    appId: QQYdZ0vtjPeHG7pTR3Hj8sFD-gzGzoHsz
+    appKey: DZP0H1NAncrwlUFAMPKlpuDY
+    placeholder: Just go go
+    pageSize: 10
+    highlight: true
+    serverURLs: 
+    # Other supported parameters can be added here if needed
+    # Visit https://valine.js.org/configuration.html for more details
+  twikoo:
+    enable: false # Enable Twikoo comment system
+    envID:
+    region:
+    path: location.pathname
+    lang:
+    # See also: https://github.com/imaegoo/twikoo
+
+#Analytics
+gauges_analytics: false
+google_analytics: false #UA-xxxxxx
+baidu_analytics: false # ddxxxxxxxxxxxxxxxxx In the https://hm.baidu.com/hm.js? Afterwards
