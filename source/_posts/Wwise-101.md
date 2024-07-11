@@ -36,5 +36,17 @@ soundbank生成目录就是游戏需要调用的目录，event要扔在SoundBank
 4. State:就跟之前创建的其他 Game Sync 一样，我们需要将 State Group 的名称以及其中包含的 State 对象告知游戏引擎程序员，以确保游戏调用与这些对象完全一致。
 
 最后还是要Event事件去控制游戏参数的逻辑(按照之前的Audio->Event->SoundBank->引擎)
+(后续补的章节,可能有参差)
 
+# Part IV
+3D音效的营造
+
+首先是介绍了ShareSets里面的衰减(Attenuations)可以设置完一次后在Audio对象的Positioning选项卡中设置(本例子中将 3D Spatialization（3D 空间化）属性改为 Position + Orientation（位置 + 朝向）)
+
+![system](images/ShareAttenuation.png "衰减")  
+
+衰减(Attenuation)主要有一下几个
+1. Cone Attenuation(声锥衰减),根据声音的远近来的衰减(上图)  
+2. 3D Position Automation,根据声音的运动轨迹来进行  ![system](images/PositionAttenuation.png "衰减")
+3. Speaking Panning 有些情况下声音并不需要采用 3D 定位，尤其是游戏中的音乐或旁白，因为这些元素并不代表实实在在的游戏对象,例如，你可能想让旁白从 Listener 背后传来，方法是把这个声音摆位到左右环绕音箱上去，或者你可能想让音乐只从左右前置音箱中传过来。这种以此传统方式来定位声音并忽略发声体在 3D 空间中的位置的做法称为 Speaker Panning。 ![system](images/SpeakerPanningAttenuation.png "衰减") 
 
