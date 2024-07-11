@@ -63,5 +63,5 @@ ignore: null
 theme: vivia
 deploy:
   type: git
-  repo: https://github.com/OVOAOVO/OVOAOVO.github.io.git
+  repo: git@github.com:OVOAOVO/OVOAOVO.github.io.git
   branch: master
