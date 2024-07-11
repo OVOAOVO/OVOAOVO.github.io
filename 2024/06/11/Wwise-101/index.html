@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/06/11/Wwise-101/images/Wwise101.png">
 <meta property="article:published_time" content="2024-06-11T15:32:27.000Z">
-<meta property="article:modified_time" content="2024-07-11T03:03:29.607Z">
+<meta property="article:modified_time" content="2024-07-11T04:06:14.388Z">
 <meta property="article:author" content="OVOAOVO">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="音乐">
@@ -303,7 +303,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            534 词 
+            862 词 
           </div>
         </div>
         
@@ -328,7 +328,15 @@
 <blockquote>
 <p>感觉用起来很舒服，起码比FLstudio要舒服的多，左下角有所有的功能提示，FLstudio只有简介，Wwise甚至有说明，各种编辑起来也很方便，不知道是不是因为本身属于一种编程思想的音频引擎？O_o</p>
 </blockquote>
-<h3 id="有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多"><a href="#有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多" class="headerlink" title="有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多"></a>有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多</h3>
+<h3 id="有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多"><a href="#有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多" class="headerlink" title="有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多"></a>有一个值得注意的地方是，在编辑器里面Audio目录里面Copy是新建的引用，而不是新建文件夹，引用的是同一个文件，这方面Wwise自己也说很注重性能，前面第一部分开头就是性能分析怎么分析，感觉确实做的很好，易用且考虑的多</h3><h1 id="Part-III"><a href="#Part-III" class="headerlink" title="Part III"></a>Part III</h1><p>主要是GameSync目录(游戏同步器的使用)</p>
+<ol>
+<li>Switch(跟程序中的Switch是一样的,但选择的是不同的播放音频,要满足自己设置好的条件(比如引擎call草就播放草相关的音效))</li>
+<li>GameParameter(游戏参数): 血条什么的,比如可以设置血条为0的时候播放哪些</li>
+<li>RTPC曲线:对声音的调整曲线</li>
+<li>State:就跟之前创建的其他 Game Sync 一样，我们需要将 State Group 的名称以及其中包含的 State 对象告知游戏引擎程序员，以确保游戏调用与这些对象完全一致。</li>
+</ol>
+<p>最后还是要Event事件去控制游戏参数的逻辑(按照之前的Audio(这里就是对应的游戏参数,不再是单独的音频)-&gt;Event-&gt;SoundBank-&gt;引擎)</p>
+
         
       </div>
 
