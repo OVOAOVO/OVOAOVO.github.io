@@ -35,6 +35,6 @@ soundbank生成目录就是游戏需要调用的目录，event要扔在SoundBank
 3. RTPC曲线:对声音的调整曲线
 4. State:就跟之前创建的其他 Game Sync 一样，我们需要将 State Group 的名称以及其中包含的 State 对象告知游戏引擎程序员，以确保游戏调用与这些对象完全一致。
 
-最后还是要Event事件去控制游戏参数的逻辑(按照之前的Audio(这里就是对应的游戏参数,不再是单独的音频)->Event->SoundBank->引擎)
+最后还是要Event事件去控制游戏参数的逻辑(按照之前的Audio->Event->SoundBank->引擎)
 
 
