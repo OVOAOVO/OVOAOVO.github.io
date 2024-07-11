@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/06/11/Wwise-101/images/Wwise101.png">
 <meta property="article:published_time" content="2024-06-11T15:32:27.000Z">
-<meta property="article:modified_time" content="2024-07-11T06:34:42.850Z">
+<meta property="article:modified_time" content="2024-07-11T09:39:21.181Z">
 <meta property="article:author" content="OVOAOVO">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="音乐">
@@ -303,7 +303,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            840 词 
+            1.3k 词 
           </div>
         </div>
         
@@ -335,7 +335,16 @@
 <li>RTPC曲线:对声音的调整曲线</li>
 <li>State:就跟之前创建的其他 Game Sync 一样，我们需要将 State Group 的名称以及其中包含的 State 对象告知游戏引擎程序员，以确保游戏调用与这些对象完全一致。</li>
 </ol>
-<p>最后还是要Event事件去控制游戏参数的逻辑(按照之前的Audio-&gt;Event-&gt;SoundBank-&gt;引擎)</p>
+<p>最后还是要Event事件去控制游戏参数的逻辑(按照之前的Audio-&gt;Event-&gt;SoundBank-&gt;引擎)<br>(后续补的章节,可能有参差)</p>
+<h1 id="Part-IV"><a href="#Part-IV" class="headerlink" title="Part IV"></a>Part IV</h1><p>3D音效的营造</p>
+<p>首先是介绍了ShareSets里面的衰减(Attenuations)可以设置完一次后在Audio对象的Positioning选项卡中设置(本例子中将 3D Spatialization（3D 空间化）属性改为 Position + Orientation（位置 + 朝向）)</p>
+<p><img src="/images/ShareAttenuation.png" alt="system" title="衰减">  </p>
+<p>衰减(Attenuation)主要有一下几个</p>
+<ol>
+<li>Cone Attenuation(声锥衰减),根据声音的远近来的衰减(上图)  </li>
+<li>3D Position Automation,根据声音的运动轨迹来进行  <img src="/images/PositionAttenuation.png" alt="system" title="衰减"></li>
+<li>Speaking Panning 有些情况下声音并不需要采用 3D 定位，尤其是游戏中的音乐或旁白，因为这些元素并不代表实实在在的游戏对象,例如，你可能想让旁白从 Listener 背后传来，方法是把这个声音摆位到左右环绕音箱上去，或者你可能想让音乐只从左右前置音箱中传过来。这种以此传统方式来定位声音并忽略发声体在 3D 空间中的位置的做法称为 Speaker Panning。 <img src="/images/SpeakerPanningAttenuation.png" alt="system" title="衰减"></li>
+</ol>
 
         
       </div>
