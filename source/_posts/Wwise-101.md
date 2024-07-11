@@ -50,3 +50,26 @@ soundbank生成目录就是游戏需要调用的目录，event要扔在SoundBank
 2. 3D Position Automation,根据声音的运动轨迹来进行  ![system](images/PositionAttenuation.png "衰减")
 3. Speaking Panning 有些情况下声音并不需要采用 3D 定位，尤其是游戏中的音乐或旁白，因为这些元素并不代表实实在在的游戏对象,例如，你可能想让旁白从 Listener 背后传来，方法是把这个声音摆位到左右环绕音箱上去，或者你可能想让音乐只从左右前置音箱中传过来。这种以此传统方式来定位声音并忽略发声体在 3D 空间中的位置的做法称为 Speaker Panning。 ![system](images/SpeakerPanningAttenuation.png "衰减") 
 
+# Part V
+
+音频信号流(音轨与总轨)
+
+Actor-Mixer Hierarchy（角色混音器层级结构）里面如果创建Actor-Mixer的话相当于设置一个总轨包含不同的音轨
+
+大概的关系如下图所示,总轨的设置会叠加到每个轨道之上
+![system](images/音轨与总轨.png "音轨")  
+
+>小tips: 可以设置一个color用来分辨各种类型
+
+Master Audio Bus（主音频总线）可以在下面创建很多的音轨以及父音轨来控制
+
+>Auto-Ducking :比如在DJ说话的时候背景音会自然降低,这个就叫Ducking,有AutoDucking选项
+
+效果器:默认沿用父音轨的效果器,可以Override单独配置
+
+Auxiliary Sends(辅助发送) 类似Unity的协程? 举的例子是管理音轨效果器的使用情况的,比如当你走在走廊的时候的回响效果
+
+SchematicView(对象网格图) 可以查看所有音轨的所有音频以及对象(Windows窗口里)  
+![system](images/对象网格图.png "音轨")  
+
+>PS: 一定要听听你做的效果!
