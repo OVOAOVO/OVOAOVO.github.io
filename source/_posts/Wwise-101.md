@@ -73,3 +73,16 @@ SchematicView(对象网格图) 可以查看所有音轨的所有音频以及对�
 ![system](images/对象网格图.png "音轨")  
 
 >PS: 一定要听听你做的效果!
+
+# Part VI
+
+1. SoundCaster(声音选角器)界面 可以同时设置多种声音的播放  
+![system](images/SoundCaster.png "界面")  
+2. Mixing Desk(调音台) 就是调音台拉~~~~~~~~~~~
+3. MIDI设备的使用
+
+# Part VII
+
+1. 内存管理(一个是转码减少SoundBank大小,要记得重新生产一遍,其次是使用流媒体播放)
+2. 处理器优化(只是简单说了下设置限制,不需要的可以不渲染)
+
