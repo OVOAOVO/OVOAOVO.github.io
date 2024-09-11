@@ -151,7 +151,7 @@
         
             <a class="category-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">
                 游戏技术
-                <div class="category-count">12</div>
+                <div class="category-count">14</div>
             </a>
         </div>
     </div>
@@ -174,6 +174,16 @@
     <div class="widget">
       <h3 class="widget-title">归档</h3>
       
+      
+        <a class="archive-link" href="/archives/2024/09 ">
+          九月 2024 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/08 ">
+          八月 2024 
+          <div class="archive-count">1 </div>
+        </a>
       
         <a class="archive-link" href="/archives/2024/06 ">
           六月 2024 
@@ -211,6 +221,18 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/09/11/Unity%E9%BB%98%E8%AE%A4%E7%AE%A1%E7%BA%BFUintShaderBasic/" title="Unity默认管线UintShaderBasic" >
+            <div class="recent-link-text">
+              Unity默认管线UintShaderBasic
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/08/15/%E5%B8%B8%E8%A7%81%E5%99%AA%E5%A3%B0/" title="常见噪声" >
+            <div class="recent-link-text">
+              常见噪声
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/06/11/Wwise-101/" title="Wwise-101" >
             <div class="recent-link-text">
               Wwise-101
@@ -229,18 +251,6 @@
             </div>
           </a>
         
-          <a class="recent-link" href="/2024/03/21/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-IV/" title="最终幻想16 shadow part IV" >
-            <div class="recent-link-text">
-              最终幻想16 shadow part IV
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2024/03/19/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B316-shadow-part-III/" title="最终幻想16 shadow part III" >
-            <div class="recent-link-text">
-              最终幻想16 shadow part III
-            </div>
-          </a>
-        
       </ul>
     </div>
   </div>
@@ -251,6 +261,174 @@
     </div>
     <div id="content-body">
       
+   
+
+
+<article id="post-Unity默认管线UintShaderBasic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/09/11/Unity%E9%BB%98%E8%AE%A4%E7%AE%A1%E7%BA%BFUintShaderBasic/">Unity默认管线UintShaderBasic</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-09-11T08:32:50.000Z" itemprop="datePublished">2024-09-11</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">游戏技术</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.4k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              UnityShader基础知识UnityCG.cgincUnityCG.cginc是与Unity捆绑在一起的shader包含文件之一UnityShaderVariables.cginc定义了渲染所需的一大堆着色器变量，如变换、相机和灯光数据。这些都由 Unity 在需要时设置HLSLSupport.cginc进行了平台设置，因此无论你针对哪个平台，都可以使用相同的代码。因此无需担心使用特定于平台的数据类型等UnityInstancing.cginc专门用于实例化支持，虽然它不直接包含该文件，但它依赖于UnityShaderVariables
+subshadersubshader可以使用多个shader变体组合在一起,允许构建不同平台跟细节,例如为windows使用一个subshader,移动设备使用另一个subshader
+passsubshader必须至少包含一个pass,shaderpass是实际被渲染的地方,可以有多个,有多个pass意味着被渲染多次但对于效果来说是必须的
+CGUnity的shaderLanguage HLSL跟CG的变体,必须用关键词指示CGPROGRAM...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  with-pic  "
+       style="background-image: url(/images/FirstShader.png)" 
+      href="/2024/09/11/Unity%E9%BB%98%E8%AE%A4%E7%AE%A1%E7%BA%BFUintShaderBasic/" 
+    >
+       
+      <div class="overlay">
+        <i class="fa-solid fa-angle-right with-pic"></i>
+      </div>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
+<article id="post-常见噪声" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/08/15/%E5%B8%B8%E8%A7%81%E5%99%AA%E5%A3%B0/">常见噪声</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-08-14T17:08:46.000Z" itemprop="datePublished">2024-08-15</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">游戏技术</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.2k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              噪声（快速简介）有点累，也有点晚，写的很敷衍，嗯~ o(￣▽￣)o
+基础哈希我们可以instance一个n*n的cube 的tile 然后根据随机的哈希值还有uv去赋值不同的颜色
+
+这里介绍一个Small xxHash https://xxhash.com/
+
+实现出来大概长这样  
+可以根据不同的cube的position以及uv 实现不同的效果（比如球，环）
+  
+  
+值噪声（ValueNoise）根据不同的点的线性插值来实现的
+一维  
+二维  
+三维  
+柏林噪声（PerlinNoise）一维  
+二维  
+三维  
+噪声变体（Noise Variants）这部分主要是一些噪声发明者实际上论文里的实现参数（值）应该是什么
+分型噪声（Fractal Noise）频率（Frequency）噪声的频率，它描述了它的变化速度八度（Octaves）分形噪声由不同频率的多个样本组成。这些被称为Octaves（其实不太好翻译，我觉得可以叫小分型？）振幅（amplitude）分形噪声的概念是，一个Octaves的振幅随着其频率的增加而减小空隙度（Lacunarity）频率缩放被称为噪声...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  with-pic  "
+       style="background-image: url(/images/worlyNoise.jpg)" 
+      href="/2024/08/15/%E5%B8%B8%E8%A7%81%E5%99%AA%E5%A3%B0/" 
+    >
+       
+      <div class="overlay">
+        <i class="fa-solid fa-angle-right with-pic"></i>
+      </div>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
    
 
 
@@ -873,166 +1051,6 @@ TBR (Tile-Based Rendering)移动设备的显卡不能使用 IMR (Immediate Mode 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-恶名昭著-次子-粒子系统架构" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/02/20/%E6%81%B6%E5%90%8D%E6%98%AD%E8%91%97-%E6%AC%A1%E5%AD%90-%E7%B2%92%E5%AD%90%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/">恶名昭著-次子-粒子系统架构</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-02-19T16:04:26.000Z" itemprop="datePublished">2024-02-20</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">游戏技术</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.4k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AAA/" rel="tag">AAA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GDC/" rel="tag">GDC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              注：原视频我只在GDC Vault看到，没有字幕以及翻译，很多地方可能并不准确整体架构System emitter结构
-Emit 更新PSSL processing shader language
-双缓冲结构 30帧
-工作流Translucent 半透明Opaque 半透明Emit-&gt;update（基于状态）-&gt;Draw(不透明-&gt;半透明)-&gt;Sort
-  
-图形化界面控制 实时编辑  
-编译两阶段编译：Expression&#x3D;&gt;PSSLPSSL&#x3D;&gt;manchin code多数PSSL代码在模板.cs文件中PSSL编译通过#defines 和命令行参数输入到PSSLcompiler
-参数大概有哪些函数（不是真实的）  
-Emitter有父子级别Emitter分为EMIT_SPACE 跟 UPDATE_SPACE(查看特效跟查看特效过程)用于自动转换表达式可以显示转换CONVERT_POS(),CONVERT_VEC(),CONVERT_VELOCITY()有EMIT_EVENTS指定粒子发射计划BURST(1000);PASU...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  with-pic  "
-       style="background-image: url(/images/Infamous_son.png)" 
-      href="/2024/02/20/%E6%81%B6%E5%90%8D%E6%98%AD%E8%91%97-%E6%AC%A1%E5%AD%90-%E7%B2%92%E5%AD%90%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/" 
-    >
-       
-      <div class="overlay">
-        <i class="fa-solid fa-angle-right with-pic"></i>
-      </div>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-对马岛之魂风场" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/02/19/%E5%AF%B9%E9%A9%AC%E5%B2%9B%E4%B9%8B%E9%AD%82%E9%A3%8E%E5%9C%BA/">对马岛之魂风场</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-02-19T15:17:35.000Z" itemprop="datePublished">2024-02-19</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%B8%B8%E6%88%8F%E6%8A%80%E6%9C%AF/">游戏技术</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            170 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AAA/" rel="tag">AAA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GDC/" rel="tag">GDC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              模型vector向量（单独的矢量 随天气变化 暴风雨可能更长）noise 柏林噪声 curl噪声 （非真实 Track）Vorticles 粒子系统 （不可见的风产生以及粒子间相互影响 但使用较少）不可见的地方 （主要由粒子系统产生作用比如角色产生的局部干扰）  
-Particle最明显被风扰动的东西（树叶，灰尘，烟雾等）
-主要来自恶名昭著-次子
-后面貌似都不是很重要
-
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  with-pic  "
-       style="background-image: url(/images/%E9%A3%8E.png)" 
-      href="/2024/02/19/%E5%AF%B9%E9%A9%AC%E5%B2%9B%E4%B9%8B%E9%AD%82%E9%A3%8E%E5%9C%BA/" 
-    >
-       
-      <div class="overlay">
-        <i class="fa-solid fa-angle-right with-pic"></i>
-      </div>
        
     </a>
      
