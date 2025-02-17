@@ -24,7 +24,7 @@ hue: 250                        # The hue of the theme color (e.g. red: 0, orang
 # Personal info
 avatar: /images/persion.jpg                             # Path to the avatar image relative to /source
 author: OVOAOVO
-subtitle: 游戏引擎工程师，音乐家，艺术家，游戏制作人（当然都是我吹的）
+subtitle: 想成为想成为的人的人
 links:
   - name: GitHub			# Find icon codes at https://fontawesome.com/search
     icon: fa-brands fa-github
