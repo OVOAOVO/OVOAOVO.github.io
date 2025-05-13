@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2025/05/13/%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E4%B8%80%E4%B8%AA%E9%9F%B3%E6%B8%B8/images/RhythmShoot.png">
 <meta property="article:published_time" content="2025-05-13T11:58:14.000Z">
-<meta property="article:modified_time" content="2025-05-13T13:29:24.269Z">
+<meta property="article:modified_time" content="2025-05-13T13:35:40.777Z">
 <meta property="article:author" content="OVOAOVO">
 <meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary">
@@ -327,7 +327,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.4k 词 
+            2.5k 词 
           </div>
         </div>
         
@@ -375,7 +375,10 @@
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// <span class="doctag">NOTE:</span></span></span><br><span class="line"><span class="comment">// 同一帧里“生成”一个敌人，再马上做一次 Physics.Raycast，新的 Collider 已经被注册到场景里了；</span></span><br><span class="line"><span class="comment">// 不管在任何方向上？在当前方向上？，就会被立刻击中，造成一种穿透并且击中了刚生成敌人的bug</span></span><br><span class="line"><span class="comment">// “前面生成的敌人被穿透”，但可能你认为“先生成的”就是“视觉上靠近摄像机的”。</span></span><br><span class="line"><span class="comment">// 但其实 Unity 并不会自动把“先生成的对象”摆在“前面”。</span></span><br><span class="line"><span class="comment">// 如果你在一个半圆范围内随机生成敌人，他们的位置是随机的，哪怕一个敌人在逻辑上“先生成”，但空间位置上可能在队尾，Raycast 命中它也合理。</span></span><br><span class="line"><span class="function">IEnumerator <span class="title">EnableColliderNextFrame</span>(<span class="params">Collider col</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="keyword">return</span> <span class="literal">null</span>; <span class="comment">// 等待一帧</span></span><br><span class="line">    <span class="keyword">if</span> (col != <span class="literal">null</span>) col.enabled = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="还有一个有趣的问题是，Unity中导入张带透明部分的贴图，你是否需要把他设置为Sprite？"><a href="#还有一个有趣的问题是，Unity中导入张带透明部分的贴图，你是否需要把他设置为Sprite？" class="headerlink" title="还有一个有趣的问题是，Unity中导入张带透明部分的贴图，你是否需要把他设置为Sprite？"></a>还有一个有趣的问题是，Unity中导入张带透明部分的贴图，你是否需要把他设置为Sprite？</h3><p>其实是要看你的需要来，假如他是UI的贴图，并不需要放在场景里面移动的话，你大可以放心把他设置为Sprite，Unity不是自己也说了(括弧2D and UI)</p>
 <p>但如果你需要让它放在一个mesh在场景中的话，最好是设置为默认，因为默认是开启mipmap的，假如你不开启mipmap的话，你的透明边缘部分会发生奇怪的闪烁。</p>
-<h1 id="以上，就是当了回音游制作人的心得OVO"><a href="#以上，就是当了回音游制作人的心得OVO" class="headerlink" title="以上，就是当了回音游制作人的心得OVO"></a>以上，就是当了回音游制作人的心得OVO</h1>
+<h1 id="以上，就是当了回音游制作人的心得OVO"><a href="#以上，就是当了回音游制作人的心得OVO" class="headerlink" title="以上，就是当了回音游制作人的心得OVO"></a>以上，就是当了回音游制作人的心得OVO</h1><blockquote>
+<p>有兴趣的朋友可以下载下玩一玩~<br><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1rDvvK_4FJQyyfs8g-c3mqg?pwd=i2vv">https://pan.baidu.com/s/1rDvvK_4FJQyyfs8g-c3mqg?pwd=i2vv</a></p>
+</blockquote>
+
         
       </div>
 
