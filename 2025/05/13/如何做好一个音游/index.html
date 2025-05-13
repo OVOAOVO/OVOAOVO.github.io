@@ -14,27 +14,26 @@
   
 
   
-  <title>Unity默认管线UintShaderBasic | OVOAOVO</title>
+  <title>如何做好一个音游 | OVOAOVO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="UnityShader基础知识UnityCG.cgincUnityCG.cginc是与Unity捆绑在一起的shader包含文件之一UnityShaderVariables.cginc定义了渲染所需的一大堆着色器变量，如变换、相机和灯光数据。这些都由 Unity 在需要时设置HLSLSupport.cginc进行了平台设置，因此无论你针对哪个平台，都可以使用相同的代码。因此无需担心使用特定于平台的">
+  <meta name="description" content="嗯，该从哪里讲起呢。 先从节拍开始吧。  首先我们要知道的一件事是，音乐是有节拍的，比如以四分音符为一拍，每小节有3拍，是不是回到了音乐课？ 当然我并不是要讲音乐课，我们首先需要的是一个节拍系统，这个系统其实你可以命名为Conductor(指挥家)，核心点在于三件事，节拍的计算，歌曲的BPM,时间。  冰与火之舞作者的实现https:&#x2F;&#x2F;forums.tigsource.com&#x2F;index.php">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity默认管线UintShaderBasic">
-<meta property="og:url" content="http://example.com/2024/09/11/Unity%E9%BB%98%E8%AE%A4%E7%AE%A1%E7%BA%BFUintShaderBasic/index.html">
+<meta property="og:title" content="如何做好一个音游">
+<meta property="og:url" content="http://example.com/2025/05/13/%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E4%B8%80%E4%B8%AA%E9%9F%B3%E6%B8%B8/index.html">
 <meta property="og:site_name" content="OVOAOVO">
-<meta property="og:description" content="UnityShader基础知识UnityCG.cgincUnityCG.cginc是与Unity捆绑在一起的shader包含文件之一UnityShaderVariables.cginc定义了渲染所需的一大堆着色器变量，如变换、相机和灯光数据。这些都由 Unity 在需要时设置HLSLSupport.cginc进行了平台设置，因此无论你针对哪个平台，都可以使用相同的代码。因此无需担心使用特定于平台的">
+<meta property="og:description" content="嗯，该从哪里讲起呢。 先从节拍开始吧。  首先我们要知道的一件事是，音乐是有节拍的，比如以四分音符为一拍，每小节有3拍，是不是回到了音乐课？ 当然我并不是要讲音乐课，我们首先需要的是一个节拍系统，这个系统其实你可以命名为Conductor(指挥家)，核心点在于三件事，节拍的计算，歌曲的BPM,时间。  冰与火之舞作者的实现https:&#x2F;&#x2F;forums.tigsource.com&#x2F;index.php">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/09/11/Unity%E9%BB%98%E8%AE%A4%E7%AE%A1%E7%BA%BFUintShaderBasic/images/FirstShader.png">
-<meta property="article:published_time" content="2024-09-11T08:32:50.000Z">
-<meta property="article:modified_time" content="2024-09-11T13:49:45.797Z">
+<meta property="og:image" content="http://example.com/2025/05/13/%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E4%B8%80%E4%B8%AA%E9%9F%B3%E6%B8%B8/images/RhythmShoot.png">
+<meta property="article:published_time" content="2025-05-13T11:58:14.000Z">
+<meta property="article:modified_time" content="2025-05-13T13:29:24.269Z">
 <meta property="article:author" content="OVOAOVO">
 <meta property="article:tag" content="学习">
-<meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/09/11/Unity%E9%BB%98%E8%AE%A4%E7%AE%A1%E7%BA%BFUintShaderBasic/images/FirstShader.png">
+<meta name="twitter:image" content="http://example.com/2025/05/13/%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E4%B8%80%E4%B8%AA%E9%9F%B3%E6%B8%B8/images/RhythmShoot.png">
   
     <link rel="alternate" href="/atom.xml" title="OVOAOVO" type="application/atom+xml">
   
@@ -286,14 +285,14 @@
        
 
 
-<article id="post-Unity默认管线UintShaderBasic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-如何做好一个音游" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cm0xx44a00000ksut3who65q0">
-        <img src="/images/FirstShader.png" itemprop="image">
+      <a class="article-gallery-img" rel="gallery_cmamgk7g40000eoutan6o87co">
+        <img src="/images/RhythmShoot.png" itemprop="image">
       </a>
     
   </div>
@@ -309,7 +308,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        Unity默认管线UintShaderBasic
+        如何做好一个音游
       </h1>
     
   
@@ -317,7 +316,7 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-09-11T08:32:50.000Z" itemprop="datePublished">2024-09-11</time>
+  <time class="dt-published" datetime="2025-05-13T11:58:14.000Z" itemprop="datePublished">2025-05-13</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -328,32 +327,55 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.4k 词 
+            2.4k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="UnityShader基础知识"><a href="#UnityShader基础知识" class="headerlink" title="UnityShader基础知识"></a>UnityShader基础知识</h1><h2 id="UnityCG-cginc"><a href="#UnityCG-cginc" class="headerlink" title="UnityCG.cginc"></a>UnityCG.cginc</h2><p><img src="/images/UnityCG_cginc.png" alt="images1" title="subshader"><br>UnityCG.cginc是与Unity捆绑在一起的shader包含文件之一<br>UnityShaderVariables.cginc定义了渲染所需的一大堆着色器变量，如变换、相机和灯光数据。这些都由 Unity 在需要时设置<br>HLSLSupport.cginc进行了平台设置，因此无论你针对哪个平台，都可以使用相同的代码。因此无需担心使用特定于平台的数据类型等<br>UnityInstancing.cginc专门用于实例化支持，虽然它不直接包含该文件，但它依赖于UnityShaderVariables</p>
-<h2 id="subshader"><a href="#subshader" class="headerlink" title="subshader"></a>subshader</h2><p><img src="/images/subshader.png" alt="images1" title="subshader"><br>subshader可以使用多个shader变体组合在一起,允许构建不同平台跟细节,例如为windows使用一个subshader,移动设备使用另一个subshader</p>
-<h2 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h2><p><img src="/images/subshader_pass.png" alt="images1" title="subshader"><br>subshader必须至少包含一个pass,shaderpass是实际被渲染的地方,可以有多个,有多个pass意味着被渲染多次但对于效果来说是必须的</p>
-<h2 id="CG"><a href="#CG" class="headerlink" title="CG"></a>CG</h2><p><img src="/images/PASS_CG.png" alt="images1" title="subshader"><br>Unity的shaderLanguage HLSL跟CG的变体,必须用关键词指示CGPROGRAM, ENDCG</p>
-<h2 id="program"><a href="#program" class="headerlink" title="#program"></a>#program</h2><p><img src="/images/SUBSHADER_PROGRAM.png" alt="images1" title="subshader"><br><img src="/images/shader%E5%87%BD%E6%95%B0.png" alt="images1" title="subshader"><br>必须用#program告诉编译器需要哪些程序</p>
-<h2 id="SV-XXX"><a href="#SV-XXX" class="headerlink" title="SV_XXX"></a>SV_XXX</h2><p><img src="/images/SV_POSITION_TARGET.png" alt="images1" title="subshader"><br>标注函数要写入到哪里SV_TARET是默认的shader目标, SV指的是SystemValue</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">float4 <span class="title">MyVertexProgram</span> <span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">			float4 position : POSITION,</span></span></span><br><span class="line"><span class="params"><span class="function">			out float3 localPosition : TEXCOORD0</span></span></span><br><span class="line"><span class="params"><span class="function">		)</span> : SV_POSITION &#123;</span></span><br><span class="line">			<span class="keyword">return</span> <span class="built_in">mul</span>(UNITY_MATRIX_MVP, position);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">   <span class="function">float4 <span class="title">MyFragmentProgram</span> <span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">			float4 position : SV_POSITION,</span></span></span><br><span class="line"><span class="params"><span class="function">			float3 localPosition : TEXCOORD0</span></span></span><br><span class="line"><span class="params"><span class="function">		)</span> : SV_TARGET &#123;</span></span><br><span class="line">			<span class="keyword">return</span> <span class="built_in">float4</span>(localPosition, <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<p>也可以这样给position赋值,但要注意Vertex到Fragment需要有out</p>
-<h2 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h2><p><img src="/images/shader_property.png" alt="images1" title="subshader"><br>Property中生命的变量一般都是_开头+大写字母+小写字母(约定),</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">float4 _Tint;</span><br><span class="line"></span><br><span class="line">   <span class="function">float4 <span class="title">MyVertexProgram</span> <span class="params">(float4 position : POSITION)</span> : SV_POSITION &#123;</span></span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">mul</span>(UNITY_MATRIX_MVP, position);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function">float4 <span class="title">MyFragmentProgram</span> <span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">       float4 position : SV_POSITION</span></span></span><br><span class="line"><span class="params"><span class="function">   )</span> : SV_TARGET &#123;</span></span><br><span class="line">       <span class="keyword">return</span> _Tint;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>使用时要注意名称一样</p>
-<h2 id="Struct"><a href="#Struct" class="headerlink" title="Struct"></a>Struct</h2><p><img src="/images/Interpolators.png" alt="images1" title="subshader"><br>可以声明一个,或者多个Struct来定义数据使代码更简洁</p>
-<p>_ST后缀的变量可以代表Unity贴图的tiling跟Offset</p>
-<blockquote>
-<p>_ST后缀代表Scale 和 Translation，或类似的东西。为什么不使用_TO来表示Tiling 和 Offset？因为 Unity 一直使用_ST，并且向后兼容性要求它保持这种方式，即使术语可能已更改。</p>
+          <h1 id="嗯，该从哪里讲起呢。"><a href="#嗯，该从哪里讲起呢。" class="headerlink" title="嗯，该从哪里讲起呢。"></a>嗯，该从哪里讲起呢。</h1><blockquote>
+<p>先从节拍开始吧。</p>
 </blockquote>
-
+<p>首先我们要知道的一件事是，音乐是有节拍的，比如以四分音符为一拍，每小节有3拍，是不是回到了音乐课？</p>
+<p>当然我并不是要讲音乐课，我们首先需要的是一个节拍系统，这个系统其实你可以命名为Conductor(指挥家)，核心点在于三件事，节拍的计算，歌曲的BPM,时间。</p>
+<blockquote>
+<p>冰与火之舞作者的实现<br><a target="_blank" rel="noopener" href="https://forums.tigsource.com/index.php?topic=49041.0">https://forums.tigsource.com/index.php?topic=49041.0</a></p>
+</blockquote>
+<p>BPM为每分钟的节拍数，所以如果我们60.f&#x2F;BPM会得到一个每秒有多少拍子</p>
+<p>当我们在Unity&#x2F;Unreal&#x2F;FMOD&#x2F;Wwise中其实是有一个时间来计算当前歌曲的播放时间我们记为T。</p>
+<p>所以T&#x2F;60.f&#x2F;BPM 我们可以得到一个当前处于歌曲的第几拍，同时也可以得到所有的拍子数量，这样我们可以使用任意一个int值来存下来。</p>
+<p>由此，其实一个节拍系统就完成了。很简单不是吗？</p>
+<h1 id="所以其实任意的玩法都是可以支撑的"><a href="#所以其实任意的玩法都是可以支撑的" class="headerlink" title="所以其实任意的玩法都是可以支撑的"></a>所以其实任意的玩法都是可以支撑的</h1><p>因为它只是一个按照歌曲固定位置的int，像第一拍我们记为1，第二拍为2等等</p>
+<blockquote>
+<p>所以节奏天国不是偷懒的玩法啊，拼一拼完事了(暴论hh)</p>
+</blockquote>
+<h1 id="音乐能够传递感情，但感情是需要传递的媒介"><a href="#音乐能够传递感情，但感情是需要传递的媒介" class="headerlink" title="音乐能够传递感情，但感情是需要传递的媒介"></a>音乐能够传递感情，但感情是需要传递的媒介</h1><h2 id="比如一个良好的设计的玩法"><a href="#比如一个良好的设计的玩法" class="headerlink" title="比如一个良好的设计的玩法"></a>比如一个良好的设计的玩法</h2><p>冰与火之舞能够很好的支持所有音符，2分&#x2F;8分&#x2F;16分诸如此类，我认为它对于音乐的节拍是容纳值是很好的，所以它是一个很精妙的玩法，其实它的玩法我把它归类为跑步，按音乐跑步的节奏谁不喜欢呢？音游这么久都没有一个新的玩法，不是没有，而是很多“不合适”。这样的角度量换算其实很合适，路程-&gt;角度。</p>
+<p>Geometry Dash也是跑酷结合，但更是跑酷不是吗。而且如果你把传统下落的音符，换个视角，换成玩家控制的几何，你会发现好像就是音符不动，现在改成动轨道了。</p>
+<blockquote>
+<p>其实我怀疑他们都来自于同一个游戏Thumper😄，毕竟上GDC演讲了，知名度很高。</p>
+</blockquote>
+<p>Osu与Cytus的玩法是缩圈，但其实都是把音符下落的距离换算了一下，换成了圆圈的距离到中心半径R，收缩的速度其实就是上面的 拍每秒 所以是路程-&gt; R</p>
+<p>举这几个例子是因为他们比较出名，当然音游远不止这些(算上街机)</p>
+<p>所以你发现了吗？其实关键的玩法是一个把拍子跟固定的轨迹结合在一起的新玩法，因为计算公式的原因，让人很容易想到路程与速度所以创新的玩法是很困难的.</p>
+<h2 id="比如一个很好的剧情-象征-社区氛围-文化"><a href="#比如一个很好的剧情-象征-社区氛围-文化" class="headerlink" title="比如一个很好的剧情(象征)&#x2F;社区氛围&#x2F;文化"></a>比如一个很好的剧情(象征)&#x2F;社区氛围&#x2F;文化</h2><p>雷亚几乎所有的音游都是这样，由音乐以及剧情或者说”音乐文化”组成的。可能听起来比较虚，但其实举个例子，MushDash，二次元，嗯哼~(擦边啦)，而且关键发家早啊，没人做手机音游的时候，你搞一个，这不稳吃螃蟹！</p>
+<p>如果说MushDash成在二次元，那个屁股肉成功3分靠二次元3分靠免费4分靠运气，我不认可他是个非常优秀的音游</p>
+<p>FridayNight Funkin&#x2F;Osu二创是非常多的，逐渐的就形成了一个社区氛围，圈外人说实话根本看不懂，说实话，我也看不懂 :）但就是因为这小部分狂热粉丝</p>
+<h2 id="比如一个精致的画面"><a href="#比如一个精致的画面" class="headerlink" title="比如一个精致的画面"></a>比如一个精致的画面</h2><p>目前其实更多的音游在向这方面做，因为前面两个是很困难的，玩法上光看独立游戏每年多少“神作”就能看出来，新玩法几年出一个？(而且探究下历史其实是有的，有的兄弟，有的)</p>
+<p>社区上等几年，黄花菜都凉了，还不一定能成，倒复刻个deemo还具有可行性，但赚钱吗？他为什么不玩deemo玩你的，没错，螃蟹被人吃了！</p>
+<p>JustShape是个很好的例子，现在很多手机音游都是这样，taptap排行榜一共显示50个，音游一个才34个，几乎全是一个模子刻出来的，卷画面，duangduang的特效</p>
+<h1 id="所以就像游戏里面的背景音乐一样，更多的反而不要关注音乐方面"><a href="#所以就像游戏里面的背景音乐一样，更多的反而不要关注音乐方面" class="headerlink" title="所以就像游戏里面的背景音乐一样，更多的反而不要关注音乐方面"></a>所以就像游戏里面的背景音乐一样，更多的反而不要关注音乐方面</h1><p>听起来可能听抽象，但这个确实是我实现完RhythmShooter这个音游的核心玩法的感悟，因为该实现的节拍，偏移，音乐等等其实都实现了，但玩起来真的感觉，没那么重要。</p>
+<h1 id="关于音游的技术难点"><a href="#关于音游的技术难点" class="headerlink" title="关于音游的技术难点"></a>关于音游的技术难点</h1><p>再加上这个吧，音游核心的实现应该没有什么技术难点了，难点更需要关注你自己的特殊玩法</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://indienova.com/indie-game-development/how-to-add-an-event-subscribable-audio-system-to-your-game-project/">https://indienova.com/indie-game-development/how-to-add-an-event-subscribable-audio-system-to-your-game-project/</a></p>
+</blockquote>
+<p>讲个有趣的</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// <span class="doctag">NOTE:</span></span></span><br><span class="line"><span class="comment">// 同一帧里“生成”一个敌人，再马上做一次 Physics.Raycast，新的 Collider 已经被注册到场景里了；</span></span><br><span class="line"><span class="comment">// 不管在任何方向上？在当前方向上？，就会被立刻击中，造成一种穿透并且击中了刚生成敌人的bug</span></span><br><span class="line"><span class="comment">// “前面生成的敌人被穿透”，但可能你认为“先生成的”就是“视觉上靠近摄像机的”。</span></span><br><span class="line"><span class="comment">// 但其实 Unity 并不会自动把“先生成的对象”摆在“前面”。</span></span><br><span class="line"><span class="comment">// 如果你在一个半圆范围内随机生成敌人，他们的位置是随机的，哪怕一个敌人在逻辑上“先生成”，但空间位置上可能在队尾，Raycast 命中它也合理。</span></span><br><span class="line"><span class="function">IEnumerator <span class="title">EnableColliderNextFrame</span>(<span class="params">Collider col</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="keyword">return</span> <span class="literal">null</span>; <span class="comment">// 等待一帧</span></span><br><span class="line">    <span class="keyword">if</span> (col != <span class="literal">null</span>) col.enabled = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="还有一个有趣的问题是，Unity中导入张带透明部分的贴图，你是否需要把他设置为Sprite？"><a href="#还有一个有趣的问题是，Unity中导入张带透明部分的贴图，你是否需要把他设置为Sprite？" class="headerlink" title="还有一个有趣的问题是，Unity中导入张带透明部分的贴图，你是否需要把他设置为Sprite？"></a>还有一个有趣的问题是，Unity中导入张带透明部分的贴图，你是否需要把他设置为Sprite？</h3><p>其实是要看你的需要来，假如他是UI的贴图，并不需要放在场景里面移动的话，你大可以放心把他设置为Sprite，Unity不是自己也说了(括弧2D and UI)</p>
+<p>但如果你需要让它放在一个mesh在场景中的话，最好是设置为默认，因为默认是开启mipmap的，假如你不开启mipmap的话，你的透明边缘部分会发生奇怪的闪烁。</p>
+<h1 id="以上，就是当了回音游制作人的心得OVO"><a href="#以上，就是当了回音游制作人的心得OVO" class="headerlink" title="以上，就是当了回音游制作人的心得OVO"></a>以上，就是当了回音游制作人的心得OVO</h1>
         
       </div>
 
@@ -365,27 +387,22 @@
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2024/09/30/%E5%81%8F%E6%89%A7%E4%B8%8E%E8%BF%B7%E8%8C%AB/"
-      title="偏执与迷茫"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        偏执与迷茫
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2024/08/15/%E5%B8%B8%E8%A7%81%E5%99%AA%E5%A3%B0/"
-      title="常见噪声"
+      href="/2025/03/28/VisualStudio%E9%A1%B9%E7%9B%AE%E8%AE%BE%E7%BD%AE%E5%85%B1%E4%BA%AB/"
+      title="VisualStudio项目设置共享"
      >
 
     <p class="title-text">
       
-        常见噪声
+        VisualStudio项目设置共享
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
